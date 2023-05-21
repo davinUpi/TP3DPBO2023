@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Config buat ubah2 profil DB
+ */
 class Config{
     static public $hostname ="localhost";
     static public $username ="root";

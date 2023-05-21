@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Intinya router
+ */
 include_once('controllers/Manufacturer.controller.php');
 
 $controller = new ManufacturerController();

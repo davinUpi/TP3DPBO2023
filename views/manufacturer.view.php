@@ -33,7 +33,13 @@ class ManufacturerView extends ViewHandler{
             </tr>
             ';
         }
-
+        /**
+         * search action untuk aksi form
+         * search label untuk label searchbar
+         * table_name untuk nama tabel
+         * tablehead untuk nama2 kolom tabel
+         * tablebody untuk baris2 isi tabel
+         */
         $replace = [
             'search_action' => "manufacturer.php",
             'search_label' => "Search Manufacturers",

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Intinya router
+ */
 include_once('controllers/addForm.controller.php');
 
 $figureForm = new addForm();

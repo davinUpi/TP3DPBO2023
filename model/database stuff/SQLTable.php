@@ -1,4 +1,8 @@
 <?php
+/**
+ * Interface untuk tabel2 sql
+ */
+
 namespace Models;
 interface SQLTable{
     public function getAll($keyword = '', $sort = '');

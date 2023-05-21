@@ -32,7 +32,13 @@ class FigureTypeView extends ViewHandler{
             </tr>
             ';
         }
-
+        /**
+         * search action untuk aksi form
+         * search label untuk label searchbar
+         * table_name untuk nama tabel
+         * tablehead untuk nama2 kolom tabel
+         * tablebody untuk baris2 isi tabel
+         */
         $replace = [
             'search_action' => "figure_type.php",
             'search_label' => "Search figure types",

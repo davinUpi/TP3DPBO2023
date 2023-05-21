@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * sebuah bentuk kemalasan
+ */
 namespace Models;
 
 include_once('database stuff/Database.php');

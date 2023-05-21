@@ -23,6 +23,7 @@ class Database
     }
 
     protected function execute($query){
+        // untuk query yang tidak mengubah tabel
         $this->result = mysqli_query($this->mysqli, $query);
     }
 
@@ -31,6 +32,7 @@ class Database
     }
 
     protected function executeAffected($query = ""){
+        // untuk query yang mengubah tabel, baik isi ataupun struktur
         mysqli_query($this->mysqli, $query);
         return mysqli_affected_rows($this->mysqli);
     }

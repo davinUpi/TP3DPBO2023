@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Intinya router
+ */
 include_once('controllers/delete.controller.php');
 
 $delete = new deleteController();

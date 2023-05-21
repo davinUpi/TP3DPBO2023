@@ -3,6 +3,9 @@
 namespace Models;
 include_once('Models.php');
 class modelFigureInfo extends Database implements SQLViewTable{
+    /**
+     * Kata bu rosa kolom2 harus diketikkan
+     */
     private $id;
     private $name;
     private $img;
@@ -10,6 +13,9 @@ class modelFigureInfo extends Database implements SQLViewTable{
     private $manufacturer;
     private $man_logo;
 
+    /**
+     * Mengembalikan hasil dalam bentuk arr
+     */
     public function getAll($keyword = '', $sort = ''){
         $arr = [];
         $query = "SELECT * FROM figure_info";
@@ -35,6 +41,9 @@ class modelFigureInfo extends Database implements SQLViewTable{
         return $arr;
     }
 
+    /**
+     * Ngambil satu berdasarkan id
+     */
     public function getById($id){
         $query = "SELECT * FROM figure_info WHERE id = ".$id;
         $this->execute($query);

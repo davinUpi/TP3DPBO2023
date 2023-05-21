@@ -1,8 +1,8 @@
 <?php
 
-include_once 'config/Config.php';
-include_once('model/modelFigureInfo.php');
-include_once('views/index.view.php');
+include_once 'config/Config.php';           // < -- konfig db
+include_once('model/modelFigureInfo.php');  // < -- model table view figure_info
+include_once('views/index.view.php');       // < -- view untuk index
 use Models\modelFigureInfo;
 use Views\IndexView;
 

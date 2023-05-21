@@ -1,7 +1,7 @@
 <?php
-include_once 'config/Config.php';
-include_once('model/modelManufacturers.php');
-include_once('views/manufacturer.view.php');
+include_once 'config/Config.php';              // db konfig
+include_once('model/modelManufacturers.php');  // < -- model tabel manufakturer
+include_once('views/manufacturer.view.php');   // < -- view tabel manufakturer
 
 use Models\modelManufacturer;
 use Views\ManufacturerView;

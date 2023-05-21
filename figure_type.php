@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Intinya router
+ */
 include_once("controllers/figure_type.controller.php");
 
 $controller = new FigureTypeController();

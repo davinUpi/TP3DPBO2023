@@ -1,7 +1,7 @@
 <?php
 
-include_once('config/Config.php');
-include_once('model/modelFigures.php');
+include_once('config/Config.php');       // < -- konfig db
+include_once('model/modelFigures.php');  // < -- model tabel figure
 
 use Models\modelFigures;
 

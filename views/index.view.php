@@ -34,6 +34,11 @@ class IndexView extends ViewHandler{
             </div>
             ';
         }
+        /**
+         * figures_card untuk card-card figure
+         * search_action untuk action dari form search
+         * search_label untuk label searchfield
+         */
         $this->replace([
             'figures_card' => $figure_cards,
             'search_action' => "index.php",

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Intinya router
+ */
 include_once('controllers/updateForm.controller.php');
 
 $updateForm = new UpdateForm();

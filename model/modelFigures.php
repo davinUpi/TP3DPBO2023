@@ -10,6 +10,9 @@ class modelFigures extends Database implements SQLTable{
     private $type;
     private $man;
 
+    /**
+     * Mengembalikan hasil dalam bentuk arr
+     */
     public function getAll($keyword='', $sort = ''){
         $arr = [];
         $query = "SELECT * FROM figures";
@@ -31,6 +34,9 @@ class modelFigures extends Database implements SQLTable{
         return $arr;
     }
 
+    /**
+     * Ngambil satu berdasarkan id
+     */
     public function getById($id){
         $query = "SELECT * FROM figures ";
         $query .= "WHERE fig_id = ".intval($id);

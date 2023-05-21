@@ -1,4 +1,7 @@
 <?php
+/**
+ * BELUM JALAN DAN MALES
+ */
 namespace Models;
 class Query
 {

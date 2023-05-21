@@ -1,11 +1,14 @@
 <?php
 
-include_once('config/Config.php');
-include_once('model/modelFigures.php');
-include_once('model/modelFigureType.php');
-include_once('model/modelManufacturers.php');
-include_once('views/addForm.view.php');
+include_once('config/Config.php');             // < -- konfigurasi db
+include_once('model/modelFigures.php');        // < -- model tabel figure 
+include_once('model/modelFigureType.php');     // < -- model table tipe figure
+include_once('model/modelManufacturers.php');  // < -- model tabel manufakturer
+include_once('views/addForm.view.php');        // < -- view untuk form add
 
+/**
+ * pake namespace, jadi harus gini
+ */
 use Models\modelFigures;
 use Models\modelFigureType;
 use Models\modelManufacturer;
@@ -24,10 +27,13 @@ class addForm{
         $this->mMan = new modelManufacturer($hostname, $username, $dbpass, $dbname);
     }
     public function form(){
+        // Inisialisasi var data untuk nampung semua data
         $data = [
             'type' => null,
             'man' => null
         ];
+
+        // pengambilan data tipe dan manufakturer via model masing2
         $this->mFigureType->open();
         $this->mMan->open();
 
@@ -37,22 +43,29 @@ class addForm{
         $this->mFigureType->close();
         $this->mMan->close();
 
+        // render form-nya
         $view = new addFormView();
         $view->render($data);
     }
 
     public function add($input) : int{
+        // pisah input: data untuk figure baru dan img yg diupload
         $data = $input['data'];
         $file = $input['file'];
+
+        // memastikan semua field not null terpenuhi
         if(isset($data['name'], $data['type'], $data['manufacturer'], $file['image'])){
             $name = trim(htmlspecialchars($data['name']));
             $type = intval($data['type']);
             $man = intval($data['manufacturer']);
             $image = $file['image'];
 
+            // memastikan nama tidak duplicate
             $this->mFigures->open();
             $figure = $this->mFigures->getAll($name);
             if(empty($figure)){
+
+                // image handler
                 $image_name = $image['name'];
                 $image_tmp = $image['tmp_name'];
                 $destination = "assets/img/figures/".$image_name;
@@ -61,6 +74,8 @@ class addForm{
                     move_uploaded_file($image_tmp, $destination);
                     printf("uploaded");
                 }
+
+                // memasukkan ke db
                 if($this->mFigures->insert(
                     [
                         'name' => $name,

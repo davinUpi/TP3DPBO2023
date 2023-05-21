@@ -43,6 +43,19 @@ class updateFormView extends ViewHandler{
             }
         }
 
+        /**
+         * modip skin
+         * type_values untuk pilihan2 dropdown tipe
+         * man_values untuk pilihan2 dropdown manufakturer
+         * form_action untuk action="" dari <form>
+         * show_preview untuk apakah <img id='preview'> ditampilkan di awal
+         * btn_val untuk isi dari tombol form
+         * req_img untuk img uploader, apakah harus upload atau nggak
+         * fig_id untuk id figure yang disimpan di hidden
+         * name_val untuk nama figur saat ini
+         * img_val untuk menampilkan img figure saat ini
+         * hidden-img-val untuk img-figure saat ini
+         */
         $replace = [
             'type_values' => $type_dropdown,
             'man_values' => $man_dropdown,

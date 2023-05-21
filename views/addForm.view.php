@@ -14,6 +14,7 @@ class addFormView extends ViewHandler{
         $type = $data['type'];
         $man = $data['man'];
 
+        // set value2 dropdown / html.select
         $type_dropdown = null;
         foreach($type as $val){
             $type_dropdown .= '
@@ -28,6 +29,15 @@ class addFormView extends ViewHandler{
             ';
         }
 
+        /**
+         * modip skin
+         * type_values untuk pilihan2 dropdown tipe
+         * man_values untuk pilihan2 dropdown manufakturer
+         * form_action untuk action="" dari <form>
+         * show_preview untuk apakah <img id='preview'> ditampilkan di awal
+         * btn_val untuk isi dari tombol form
+         * req_img untuk img uploader, apakah harus upload atau nggak
+         */
         $this->replace([
             'type_values' => $type_dropdown,
             'man_values' => $man_dropdown,

@@ -1,4 +1,5 @@
 <?php
+
 include_once('config/Config.php');
 include_once('model/modelFigures.php');
 include_once('model/modelFigureType.php');
@@ -24,11 +25,17 @@ class UpdateForm{
         $this->mMan = new modelManufacturer($hostname, $username, $dbpass, $dbname);
     }
     public function updateForm($id){
+        /**
+         * Data terdiri dari data2 figure, manufakturer, dan tipe
+         * Semua disiapkan dulu tempatnya di satu var ini
+         */
         $data = [
             'figure' => null,
             'type' => null,
             'man' => null
         ];
+
+        //  pengambilan data
         $this->mFigures->open();
         $this->mFigureType->open();
         $this->mMan->open();
@@ -41,11 +48,14 @@ class UpdateForm{
         $this->mFigureType->close();
         $this->mMan->close();
 
+        // menampilkan form yang sudah terisi dengan data2 sebelumnya
         $view = new updateFormView();
         $view->render($data);
     }
 
-    public function updateFigure($input) : int{
+    public function updateFigure($input) : int{  //entah dimana wwww
+
+        // memisahkan data dengan file
         $data = $input['data'];
         $file = $input['file'];
 
@@ -55,6 +65,7 @@ class UpdateForm{
             $type = intval($data['type']);
             $man = intval($data['manufacturer']);
 
+            // bila user tidak mengubah gambar
             if(isset($data['hidden_img'])){
                 $img = $data['hidden_img'];
 
@@ -75,6 +86,7 @@ class UpdateForm{
                     return 1;
                 }
             }
+            // bila user mengubah gambar
             else if(isset($file['image']) && !empty($file['image'])){
                 $image = $file['image'];
                 $image_name = $image['name'];
