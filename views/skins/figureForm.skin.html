@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class=" container-md m-5 p-3 border-1 border">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Figure Form</h2>
+                <form action="<replace>form_action</replace>" method="POST" enctype="multipart/form-data">
+                    <replace>fig_id</replace>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required value="<replace>name_val</replace>">
+                    </div>
+                    <input type="hidden" id="hidden_img" name="hidden_img" value="<replace>hidden-img-val</replace>">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*" <replace>req_img</replace>>
+                        <div class="align-content-center d-flex justify-content-center">
+                            <img id="image-preview" src="<replace>img_val</replace>" alt="Selected Image" class=" img-fluid img-thumbnail mt-2 "
+                                style="max-width: 200px; display: <replace>show_preview</replace>;">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <select class="form-select" id="type" name="type" required>
+                            <option value="" selected disabled>Select type</option>
+                            <replace>type_values</replace>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="manufacturer" class="form-label">Manufacturer</label>
+                        <select class="form-select" id="manufacturer" name="manufacturer" required>
+                            <option value="" selected disabled>Select manufacturer</option>
+                            <replace>man_values</replace>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-primary" value="<replace>btn_val</replace>">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script>
+        // Image preview functionality
+        const imageInput = document.getElementById('image');
+        const imagePreview = document.getElementById('image-preview');
+        const hiddenImg = document.getElementById('hidden_img')
+
+        imageInput.addEventListener('change', function () {
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    hiddenImg.val = "";
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(imageInput.files[0]);
+            }
+        });
+    </script>
+</body>
+
+</html>
